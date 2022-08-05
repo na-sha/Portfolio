@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+    <title>na.sha</title>
+</head>
+
+<!-- no use of home class added no bg images :(-->
+
+<body class="skill-tab">
+    <header class="primary-header flex">
+        <div>
+            <img src="./assets/sitel.png" class="logo">
+        </div>
+        <!-- setup for the menu hamburger button -->
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only"
+                aria-expanded="false">Menu</span></button>
+        <nav>
+            <ul class="primary-navigation underline-indicators flex">
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./index.html">AboutMe</a>
+                <li class="active"><a class="ff-sans-cond text-white letter-spacing-2" href="./skills.html">MySkills</a>
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./work.html">Work</a>
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./contact.html">ContactMe</a>
+            </ul>
+        </nav>
+    </header>
+    <main id="main" class="grid-container grid-container--skills">
+        <div class="flow">
+            <h1 class="numbered-title">
+                <span aria-hidden="true">01</span> Skills and Experiences
+            </h1>
+            <!-- <article class="skill-info" id="backend-tab" role="tabpanel" hidden>
+                <h2 class="fs-800 uppercase ff-serif">Backend</h2>
+                <p style="padding-bottom: 1em;">
+                    Since beginning my journey as a freelance developer nearly 10 years ago, I’ve done remote work for
+                    agencies, consulted for startups, and collaborated with talented people to create web products for
+                    both
+                    business and consumer use. I create successful responsive websites that are fast, easy to use, and
+                    built
+                    with best practices. The main area of my expertise is front-end development, HTML, CSS, JS, building
+                    small and medium web apps, custom plugins, features, animations, and coding interactive layouts. I
+                    also
+                    have full-stack developer experience with popular open-source CMS like (WordPress, Drupal,Magento,
+                    Keystone.js and others). Visit my LinkedIn profile for more details or just contact me.
+                </p>
+            </article> -->
+            <article class="skill-info active" id="frontend-tab" role="tabpanel">
+                <h2 class="fs-800 uppercase ff-serif">Frontend</h2>
+                <p style="padding-bottom: 1em;">
+                    I quite enjoy Frontend development and i believe am quite fluent in HTML,CSS and JS. Frontend is
+                    quite interesting as it's more rewarding to a user and to the developer themselves, but i think the
+                    the trial and error does it for me, i feel like there is less of problem solving and more of trial
+                    and error( i mean some people might find that a puzzle ). It mught feel like I am ranting 'bout it
+                    but it's beacause i feel it has unlimited potential. So yeah i like it...
+                </p>
+                <p><a href="./contact.html" class="text-accent">Contact</a> me for more details.</p>
+                </p>
+            </article>
+
+        </div>
+        <div>
+            <div class="tab-list underline-indicators flex skill-control" role="tablist" aria-label="skill list">
+                <a href="./skills.html"><button aria-selected="false" role="tab" aria-controls="frontend-tab"
+                        class="uppercase ff-sans-cond text-accent letter-spacing-2 bg-dark" style="border: none;"
+                        tabindex="-1">Backend</button></a>
+                <button aria-selected="true" role="tab" aria-controls="frontend-tab"
+                    class="active uppercase ff-sans-cond text-accent letter-spacing-2" tabindex="0">Frontend</button>
+            </div>
+
+            <!-- backend -->
+            <!-- <article id="backend-tab" role="tabpanel" hidden>
+                <div class="skill-meta flex">
+                    <div class="skill">
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="progress">60%</div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="hsl(var(--clr-white)/.8)" />
+                                    <stop offset="100%" stop-color="hsl(var(--clr-white)/.5)" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="circle" id="circle-bar" cx="80" cy="80" r="70" stroke-linecap="round" />
+                        </svg>
+                        <p class="fs-600 uppercase letter-spacing-2" style="text-align: center; margin-top: 0.5rem;">
+                            Python
+                        </p>
+                    </div>
+                    <div class="fs-300" style="margin-top: 1.5em;margin-left: 2em;">
+                        <p>This is a skill meter. Its supposed to tell my proficiency in a language. Obviously its not a
+                            lie. Its mathematically calculated. :)</p>
+                    </div>
+                </div>
+            </article> -->
+
+            <!-- frontend -->
+            <article id="frontend-tab" role="tabpanel">
+                <div class="skill-meta flex">
+                    <div class="skill">
+                        <div class="outer">
+                            <div class="inner">
+                                <div id="progress">55/100</div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="hsl(var(--clr-white)/.8)" />
+                                    <stop offset="100%" stop-color="hsl(var(--clr-white)/.5)" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="circle" id="circle-bar" cx="80" cy="80" r="70" stroke-linecap="round" />
+                        </svg>
+                        <p class="fs-600 uppercase letter-spacing-2" style="text-align: center; margin-top: 0.5rem;">
+                            Javascript
+                        </p>
+                    </div>
+                    <div class="fs-300" style="margin-top: 1.5em;margin-left: .5em;">
+                        <p>This is a skill meter. Its supposed to tell my proficiency in a language. Obviously its not a
+                            lie. Its mathematically calculated :)</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+    <script src="./cursor.js"></script>
+    <script src="./index.js"></script>
+    <script src="./tabs.js"></script>
+</body>
+
+</html>

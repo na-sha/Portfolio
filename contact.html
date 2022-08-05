@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+    <title>na.sha</title>
+</head>
+
+<!-- no use of home class added no bg images :(-->
+
+<body class="home">
+    <header class="primary-header flex">
+        <div>
+            <img src="./assets/sitel.png" class="logo">
+        </div>
+        <!-- setup for the menu hamburger button -->
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only"
+                aria-expanded="false">Menu</span></button>
+        <nav>
+            <ul class="primary-navigation underline-indicators flex">
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="index.html">AboutMe</a>
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./skills.html">MySkills</a>
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./work.html">Work</a>
+                <li class="active"><a class="ff-sans-cond text-white letter-spacing-2"
+                        href="./contact.html">ContactMe</a>
+            </ul>
+        </nav>
+    </header>
+    <main class="grid-container">
+        <div class="flow">
+            <h1 class="fs-700 uppercase ff-serif">Contact Me
+            </h1>
+            <p>
+                Have a question --drop me a message. Feel free to ask me for a request or a question or anything in
+                general you feel should be conveyed. Always happy to help.
+            </p>
+            <p>you can also contact me on my socials or @:na.sha.delhi@gmail.com</p>
+        </div>
+        <div>
+            <form class="my-form">
+                <div class="grid-container--form ">
+                    <ul>
+                        <!-- <li>
+                            <select>
+                                <option selected disabled>-- Please choose an option --</option>
+                                <option>Request Quote</option>
+                                <option>Send Resume</option>
+                                <option>Other</option>
+                            </select>
+                        </li> -->
+                        <li>
+                            <div class="grid grid-2">
+                                <input type="text" placeholder="Name" required>
+                                <input type="text" placeholder="Surname" required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="grid grid-2">
+                                <input type="email" placeholder="Email" required>
+                                <input type="tel" placeholder="Phone">
+                            </div>
+                        </li>
+                        <li>
+                            <textarea placeholder="Message"></textarea>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="terms">
+                            <label for="terms">I have read and agreed with <a href="">the terms and
+                                    conditions.</a></label>
+                        </li>
+                        <li>
+                            <div class="grid grid-3">
+                                <div class="required-msg">REQUIRED FIELDS</div>
+                                <button class="btn-grid" type="submit" disabled>
+                                    <span class="back">
+                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg"
+                                            alt="">
+                                    </span>
+                                    <span class="front">SUBMIT</span>
+                                </button>
+                                <button class="btn-grid" type="reset" disabled>
+                                    <span class="back">
+                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg"
+                                            alt="">
+                                    </span>
+                                    <span class="front">RESET</span>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+    <script src="./cursor.js"></script>
+    <script src="./forms.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

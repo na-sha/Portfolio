@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+    <title>na.sha</title>
+</head>
+
+<!-- no use of home class added no bg images :(-->
+
+<body class="home">
+    <header class="primary-header flex">
+        <div>
+            <img src="./assets/sitel.png" class="logo">
+        </div>
+        <!-- setup for the menu hamburger button -->
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only"
+                aria-expanded="false">Menu</span></button>
+        <nav>
+            <ul class="primary-navigation underline-indicators flex">
+                <li class="active"><a class="ff-sans-cond text-white letter-spacing-2" href="index.html">AboutMe</a>
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./skills.html">MySkills</a>
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./work.html">Work</a>
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./contact.html">ContactMe</a>
+            </ul>
+        </nav>
+    </header>
+    <main id="main" class="grid-container grid-container--home">
+        <div class="flow">
+            <h1 class="fs-700 uppercase ff-serif">Me, Myself & I
+            </h1>
+            <p>
+                HI, I’m Nandan from Himachal,India. I have a serious passion for programming in general, TBH I'm still
+                tring to understand it all but i enjoy the problem solving of it all, its just like Video Games.</p>
+            <p>
+                Problem solver, annoyingly pays too much high attention to detail, fan of travelling, chess and web
+                shows.
+            </p>
+            <p>
+                Try to keep up with new technology, try being the key word. Interested in the backend spectrum and wish
+                to collab on interesting future projects :)
+            </p>
+        </div>
+        <div>
+            <a href="./contact.html" class="large-button uppercase ff-serif text-dark bg-white">Lets make something
+                together</a>
+        </div>
+
+    </main>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+    <script src="./cursor.js"></script>
+    <script src="./index.js"></script>
+    <script src="./tabs.js"></script>
+</body>
+
+</html>

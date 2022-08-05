@@ -1,0 +1,1148 @@
+/* Custom Properties */
+:root {
+    /* colors */
+    --clr-dark: 216 100% 4%;
+    --clr-light: 31 51% 92%;
+    --clr-white: 105 55% 96%;
+    /* --clr-dark: 31 51% 92%;
+    --clr-light: 216 100% 4%;
+    --clr-white: 216 100% 4%; */
+
+    /* fonts size */
+    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-800: 5rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    /* font family */
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
+}
+
+/* for medium screens */
+@media (min-width: 35em) {
+    :root {
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-500: 1.25rem;
+        --fs-400: 1rem;
+    }
+}
+
+/* for larger screens */
+@media (min-width: 55em) {
+    :root {
+        /* font-sizes */
+        --fs-800: 4.5rem;
+        --fs-700: 3.5rem;
+        --fs-600: 2rem;
+        --fs-500: 1.75rem;
+        --fs-400: 1.125rem;
+    }
+}
+
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0;
+}
+
+/* setting a default size to font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+ul {
+    list-style: none;
+}
+
+/* set up the body */
+body {
+    /* font family */
+    font-family: var(--ff-sans-normal);
+    /* font size */
+    font-size: var(--fs-400);
+    /* font color */
+    color: hsl(var(--clr-white));
+    /* bg color */
+    background-color: hsl(var(--clr-dark));
+    /* line height */
+    line-height: 1.5;
+    /* setting up a minimum height */
+    min-height: 100vh;
+    /* detting a grid display */
+    display: grid;
+    /* setting 2 rows */
+    grid-template-rows: min-content 1fr;
+}
+
+/* make images easier to work with */
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p{
+    color: hsl(var(--clr-light)/1);
+}
+
+/* remove animations for people who've turned them off */
+/* totally not a stolen reset :) */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+
+/* setting flex class properties */
+.flex {
+    display: flex;
+    /* setting a gap variable with a default size */
+    gap: var(--gap, 1rem);
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-child {
+    justify-content: space-evenly;
+    width: calc(50% - 24px);
+}
+
+.grid {
+    display: grid;
+    /* setting a gap variable with a default size */
+    gap: var(--gap, 1rem);
+}
+
+/* setting up for good spacing */
+.flow>*:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1rem);
+}
+
+.container {
+    /* setting inline padding */
+    padding-inline: 2em;
+    /* setting inline margins */
+    margin-inline: auto;
+    /* max width it can go */
+    max-width: 80rem;
+}
+
+.grid-container {
+    /* aligning the text in center */
+    text-align: center;
+    /* border: 5px solid limegreen; */
+    /* display as grid */
+    display: grid;
+    place-items: center;
+    padding-inline: 1rem;
+    padding-bottom: 4rem;
+
+}
+
+.grid-container p:not([class]) {
+    max-width: 50ch;
+    /* outline: 3px solid limegreen; */
+}
+
+.numbered-title {
+    grid-area: title;
+}
+
+/* skill layout */
+
+.grid-container--skills {
+    --flow-space: 2rem;
+    grid-template-areas:
+        'title'
+        'image'
+        'tabs'
+        'content'
+}
+
+.grid-container--skills .numbered-title {
+    grid-area: title;
+}
+
+.grid-container--skills>img {
+    grid-area: image;
+    max-width: 60%;
+}
+
+.grid-container--skills>.tab-list {
+    grid-area: tabs;
+}
+
+.grid-container--skills>.skill-info {
+    grid-area: content;
+}
+
+.skill-meta {
+    flex-direction: row;
+    border-top: 1px solid hsl(var(--clr-white) / .1);
+    padding-top: 2.5rem;
+    margin-top: 2.5rem;
+}
+
+/* .skill-meta p {
+    font-size: 1.75rem;
+} */
+
+/* work layout */
+.grid-container--work {
+    --flow-space: 2rem;
+    grid-template-areas:
+        'title'
+        'image'
+        'tabs'
+        'content';
+}
+
+.grid-container--work>img {
+    grid-area: image;
+    max-width: 60%;
+}
+
+.grid-container--work>.dot-list {
+    grid-area: tabs;
+}
+
+.grid-container--work>.work-info {
+    grid-area: content;
+}
+
+/* work */
+.grid-container--work {
+    --flow-space: 1rem;
+    grid-template-areas:
+        'title'
+        'image'
+        'tabs'
+        'content';
+}
+
+.grid-container--work>picture {
+    grid-area: image;
+    max-width: 60%;
+    border-bottom: 1px solid hsl(var(--clr-white) / .1);
+}
+
+.grid-container--work>.dot-indicators {
+    grid-area: tabs;
+}
+
+.grid-container--work>.work-details {
+    grid-area: content;
+}
+
+.work-details h2 {
+    color: hsl(var(--clr-white) / .5);
+}
+
+@media (min-width: 35em) {
+    .numbered-title {
+        justify-self: start;
+        margin-top: 2rem;
+    }
+
+    .skill-meta {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .grid-container--work {
+        padding-bottom: 0;
+        grid-template-areas:
+            'title'
+            'content'
+            'tabs'
+            'image';
+    }
+}
+
+/* setting for larger screens */
+@media (min-width: 55em) {
+    .grid-container {
+        /* text align to left */
+        text-align: left;
+        /* setiing a column gap variable and setting it to 2rem */
+        column-gap: var(--container-gap, 4rem);
+        /* setting 4 columns */
+        grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
+    }
+
+    /* first child of the class assigned to 2 column */
+    .grid-container>*:first-child {
+        grid-column: 2;
+        /* outline: 1px solid red; */
+    }
+
+    /* first child of the class assigned to 3 column */
+    .grid-container>*:last-child {
+        grid-column: 3;
+        /* outline: 1px solid yellow; */
+    }
+
+    .grid-container--home {
+        /* setting bottom padding for asthetic */
+        padding-bottom: max(6rem, 20vh);
+        /* items aligned from bottom */
+        align-items: end;
+    }
+
+    .grid-container--skills {
+        justify-items: start;
+        grid-template-areas:
+            '. title title .'
+            '. image tabs .'
+            '. image content .';
+    }
+
+    .grid-container--skills>img {
+        max-width: 90%;
+    }
+
+    .skill-meta {
+        --gap: min(6vw, 6rem);
+        justify-content: start;
+    }
+
+    .grid-container--work {
+        grid-template-areas:
+            '. title title .'
+            '. content image .'
+            '. tabs image .';
+    }
+
+    .grid-container--work>.dot-indicators {
+        justify-self: start;
+    }
+}
+
+/* for screen readers only and for some animations */
+/* again a very common reset */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/*        */
+/* colors */
+/*        */
+.bg-dark {
+    background-color: hsl(var(--clr-dark));
+}
+
+.bg-accent {
+    background-color: hsl(var(--clr-light));
+}
+
+.bg-white {
+    background-color: hsl(var(--clr-white));
+}
+
+.text-dark {
+    color: hsl(var(--clr-dark));
+}
+
+.text-accent {
+    color: hsl(var(--clr-light));
+}
+
+.text-white {
+    color: hsl(var(--clr-white));
+}
+
+/*            */
+/* typography */
+/*            */
+.ff-serif {
+    font-family: var(--ff-serif);
+}
+
+.ff-sans-cond {
+    font-family: var(--ff-sans-cond);
+}
+
+.ff-sans-normal {
+    font-family: var(--ff-sans-normal);
+}
+
+.letter-spacing-1 {
+    letter-spacing: 4.75px;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2.7px;
+}
+
+.letter-spacing-3 {
+    letter-spacing: 2.35px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.fs-900 {
+    font-size: var(--fs-900);
+}
+
+.fs-800 {
+    font-size: var(--fs-800);
+}
+
+.fs-700 {
+    font-size: var(--fs-700);
+}
+
+.fs-600 {
+    font-size: var(--fs-600);
+}
+
+.fs-500 {
+    font-size: var(--fs-500);
+}
+
+.fs-400 {
+    font-size: var(--fs-400);
+}
+
+.fs-300 {
+    font-size: var(--fs-300);
+}
+
+.fs-200 {
+    font-size: var(--fs-200);
+}
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+
+.numbered-title {
+    font-family: var(--ff-sans-cond);
+    font-size: var(--fs-500);
+    text-transform: uppercase;
+    letter-spacing: 4.72px;
+}
+
+.numbered-title span {
+    margin-right: .5em;
+    font-weight: 700;
+    color: hsl(var(--clr-white) / .25);
+}
+
+/*             */
+/* Compontents */
+/*             */
+
+/* the main big ass button */
+.large-button {
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+    display: inline-grid;
+    place-items: center;
+    padding: 1em 1em;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    text-decoration: none;
+}
+
+/* customising sudo class of the button */
+.large-button::after {
+    content: '';
+    /* positioning absolute so no leaks */
+    position: absolute;
+    /* indexing it just below the button */
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: hsl(var(--clr-white) / .1);
+    border-radius: 50%;
+    opacity: 0;
+    /* sweet ass transition with a little glow effect */
+    transition: opacity 500ms linear, transform 750ms ease-in-out;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+    opacity: 1;
+    /* hovering state transition */
+    transform: scale(1.5);
+}
+
+.logo {
+    /* margin of the logo tbh i still dont know what clamp does */
+    margin: 1rem clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.primary-navigation {
+    /* setting gap for asthetic */
+    --gap: clamp(1.5rem, 5vw, 3.5rem);
+    /* customising underline */
+    --underline-gap: 2rem;
+    list-style: none;
+    /* padding and margins to 0 */
+    padding: 0;
+    margin: 0;
+    /* setting up the glass effect */
+    /* ik its cool */
+    background: hsl(var(--clr-white) / .2);
+    backdrop-filter: blur(1.5rem);
+}
+
+.primary-navigation a {
+    /* clearing any decorations */
+    text-decoration: none;
+}
+
+/* hiding hamburger icon for larger displays */
+.mobile-nav-toggle {
+    display: none;
+}
+
+/* setting up for mobile screens */
+@media (max-width: 35rem) {
+    .primary-navigation {
+        --underline-gap: .5rem;
+        position: fixed;
+        z-index: 1000;
+        /* size of the menu */
+        inset: 0 0 0 30%;
+        /* background: black; */
+        list-style: none;
+        padding: min(20rem, 15vh) 3rem;
+        margin: 0;
+        /* setting flex directions */
+        flex-direction: column;
+        /* aeeey another trasition */
+        /* 2 lines took more time than it should have */
+        /* idon't want to fuckin do it :( */
+        /* translate to 100% */
+        transform: translateX(100%);
+        transition: transform 500ms ease-in-out;
+    }
+
+    /* javascript for interacting with the hamburger */
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        /* for putting the svg wherever the fuck we want */
+        position: absolute;
+        z-index: 2000;
+        right: 1rem;
+        top: 2rem;
+        background: transparent;
+        background-image: url(./assets/shared/ham.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 1.5rem;
+        aspect-ratio: 1;
+        border: 0;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url("./Assets/shared/close.svg");
+    }
+}
+
+@media (min-width: 35em) {
+    .primary-navigation {
+        padding-inline: clamp(3rem, 5vw, 7rem);
+    }
+}
+
+@media (min-width: 35em) and (max-width: 55em) {
+    .primary-navigation {
+        padding-inline: 3rem;
+    }
+}
+
+@media (min-width: 55em) {
+    .primary-navigation {
+        margin-block: 2rem;
+    }
+}
+
+.underline-indicators>.skill {
+    border-bottom: 0;
+}
+
+.underline-indicators>* {
+    cursor: pointer;
+    padding: var(--underline-gap, 1rem) 0;
+    border: 0;
+    border-bottom: .2rem solid hsl(var(--clr-white) / 0);
+    background-color: transparent;
+}
+
+.underline-indicators>*:hover,
+.underline-indicators>*:focus {
+    border-color: hsl(var(--clr-white) / .5);
+}
+
+.underline-indicators>.active,
+.underline-indicators>[aria-selected="true"] {
+    color: hsl(var(--clr-white) / 1);
+    border-color: hsl(var(--clr-white) / 1);
+}
+
+.tab-list {
+    --gap: 2rem;
+}
+
+.dot-indicators>* {
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    padding: .5em;
+    background-color: hsl(var(--clr-white) / .25);
+}
+
+.dot-indicators>*:hover,
+.dot-indicators>*:focus {
+    background-color: hsl(var(--clr-white) / .5);
+}
+
+.dot-indicators>[aria-selected="true"] {
+    background-color: hsl(var(--clr-white) / 1);
+}
+
+.skill {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    padding-bottom: 3em;
+    /* background: pink ; */
+
+}
+
+.skill-control {
+    justify-content: space-evenly;
+}
+
+.skill>.outer {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    /* border: 1px solid white; */
+    padding: 20px;
+    box-shadow: 6px 6px 10px -1px hsl(var(--clr-white)/.15),
+        -6px -6px 10px -1px hsl(var(--clr-dark)/.7);
+}
+
+.inner {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px -1px hsl(var(--clr-white)/.2),
+        inset -4px -4px 6px -1px hsl(var(--clr-dark)/.7),
+        -0.5px -0.5px 0px hsl(var(--clr-dark)/1),
+        0.5px 0.5px 0px hsl(var(--clr-white)/0.15),
+        0px 12px 10px -10px hsl(var(--clr-white)/0.05);
+}
+
+#progress {
+    font-weight: 600px;
+    color: hsl(var(--clr-light)/1);
+}
+
+.circle {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+    animation: anim .4s linear forwards;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@keyframes anim {
+    100% {
+        stroke-dashoffset: 188.8;
+    }
+}
+
+/* [role="tab"]:focus {
+    color: limegreen;
+} */
+
+/* Contact Form */
+
+.my-form h1 {
+    margin-bottom: 1.5rem;
+}
+
+.my-form li,
+.my-form .grid>*:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.my-form select,
+.my-form input,
+.my-form textarea,
+.my-form button {
+    width: 100%;
+    line-height: 1.5;
+    padding: 15px 10px;
+    border: 1px solid hsl(var(--clr-white)/.7);
+    color: hsl(var(--clr-white) / 1);
+    background: hsl(var(--clr-white)/.15);
+    transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
+        transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.my-form textarea {
+    height: 170px;
+}
+
+.my-form ::placeholder {
+    color: inherit;
+    /*Fix opacity issue on Firefox*/
+    opacity: 1;
+}
+
+.my-form select:focus,
+.my-form input:focus,
+.my-form textarea:focus,
+.my-form button:enabled:hover,
+.my-form button:focus,
+.my-form input[type="checkbox"]:focus+label {
+    background: hsl(var(--clr-white)/.3);
+}
+
+.my-form select:focus,
+.my-form input:focus,
+.my-form textarea:focus {
+    transform: scale(1.02);
+}
+
+.my-form *:required,
+.my-form select {
+    background-repeat: no-repeat;
+    background-position: center right 12px;
+    background-size: 15px 15px;
+}
+
+.my-form *:required {
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg);
+}
+
+.my-form select {
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/down.svg);
+}
+
+.my-form *:disabled {
+    cursor: default;
+    filter: blur(2px);
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+/* RESET RULES*/
+:root {
+    --white: #afafaf;
+    --red: #e31b23;
+    --bodyColor: #292a2b;
+    --borderFormEls: hsl(0, 0%, 10%);
+    --bgFormEls: hsl(0, 0%, 14%);
+    --bgFormElsFocus: hsl(0, 7%, 20%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+a {
+    color: inherit;
+}
+
+input,
+select,
+textarea,
+button {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+button,
+label {
+    cursor: pointer;
+}
+
+select {
+    appearance: none;
+}
+
+/* Remove native arrow on IE */
+select::-ms-expand {
+    display: none;
+}
+
+/*Remove dotted outline from selected option on Firefox*/
+/*https://stackoverflow.com/questions/3773430/remove-outline-from-select-box-in-ff/18853002#18853002*/
+/*We use !important to override the color set for the select on line 99*/
+select:-moz-focusring {
+    color: transparent !important;
+    text-shadow: 0 0 0 var(--white);
+}
+
+textarea {
+    resize: none;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    font: 18px/1.5 "Open Sans", sans-serif;
+    background: hsl(var(--clr-dark));
+    color: hsl(var(--clr-white) / 1);
+    margin: 1.5rem 0;
+}
+
+.grid-container--form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+
+/* FORM ELEMENTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.my-form h1 {
+    margin-bottom: 1.5rem;
+}
+
+.my-form li,
+.my-form .grid>*:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.my-form select,
+.my-form input,
+.my-form textarea,
+.my-form button {
+    width: 100%;
+    line-height: 1.5;
+    padding: 15px 10px;
+    border: 1px solid var(--borderFormEls);
+    color: var(--white);
+    background: var(--bgFormEls);
+    transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
+        transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.my-form textarea {
+    height: 170px;
+}
+
+.my-form ::placeholder {
+    color: inherit;
+    /*Fix opacity issue on Firefox*/
+    opacity: 1;
+}
+
+.my-form select:focus,
+.my-form input:focus,
+.my-form textarea:focus,
+.my-form button:enabled:hover,
+.my-form button:focus,
+.my-form input[type="checkbox"]:focus+label {
+    background: var(--bgFormElsFocus);
+}
+
+.my-form select:focus,
+.my-form input:focus,
+.my-form textarea:focus {
+    transform: scale(1.02);
+}
+
+.my-form *:required,
+.my-form select {
+    background-repeat: no-repeat;
+    background-position: center right 12px;
+    background-size: 15px 15px;
+}
+
+.my-form *:required {
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg);
+}
+
+.my-form select {
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/down.svg);
+}
+
+.my-form *:disabled {
+    cursor: default;
+    filter: blur(2px);
+}
+
+
+/* FORM BTNS */
+.my-form .required-msg {
+    display: none;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg) no-repeat center left / 15px 15px;
+    padding-left: 20px;
+}
+
+.my-form .btn-grid {
+    position: relative;
+    overflow: hidden;
+    transition: filter 0.2s;
+}
+
+.my-form button {
+    font-weight: bold;
+}
+
+.my-form button>* {
+    display: inline-block;
+    width: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.my-form button .back {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-110%, -50%);
+}
+
+.my-form button:enabled:hover .back,
+.my-form button:focus .back {
+    transform: translate(-50%, -50%);
+}
+
+.my-form button:enabled:hover .front,
+.my-form button:focus .front {
+    transform: translateX(110%);
+}
+
+/* CUSTOM CHECKBOX */
+.my-form input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+}
+
+.my-form input[type="checkbox"]+label {
+    position: relative;
+    display: inline-block;
+    padding-left: 2rem;
+    transition: background 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.my-form input[type="checkbox"]+label::before,
+.my-form input[type="checkbox"]+label::after {
+    content: '';
+    position: absolute;
+}
+
+.my-form input[type="checkbox"]+label::before {
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--white);
+}
+
+.my-form input[type="checkbox"]:checked+label::before {
+    background: hsl(var(--clr-light));
+}
+
+.my-form input[type="checkbox"]:checked+label::after {
+    left: 7px;
+    top: 7px;
+    width: 6px;
+    height: 14px;
+    border-bottom: 2px solid var(--white);
+    border-right: 2px solid var(--white);
+    transform: rotate(45deg);
+}
+
+/* MQ  */
+@media screen and (min-width: 45rem) {
+    .my-form .grid {
+        display: grid;
+        --gap: 1rem;
+    }
+
+    .my-form .grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .my-form .grid-3 {
+        grid-template-columns: auto auto auto;
+        align-items: center;
+    }
+
+    .my-form .grid>*:not(:last-child) {
+        margin-bottom: 0;
+    }
+
+    .my-form .required-msg {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 541px) {
+    .my-form input[type="checkbox"]+label::before {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .my-form input[type="checkbox"]:checked+label::after {
+        top: 3px;
+    }
+}
+
+/* cursor */
+a {
+    position: relative;
+    text-decoration: none;
+}
+
+a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 0px;
+    left: 0%;
+    background: hsl(var(--clr-white) / 1);
+    transition: width .3s ease;
+}
+
+/* a:hover:after {
+    width: 100%;
+    left: 0%;
+    background: hsl(var(--clr-white) / .3);
+} */
+
+.cursor {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1px solid hsl(var(--clr-light)/1);
+    transition: all 100ms ease-out;
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    transform: translate(calc(-50% + 15px), -50%);
+}
+
+.cursor2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: hsl(var(--clr-white) / 1);
+    opacity: .3;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: width .3s, height .3s, opacity .3s;
+}
+
+.hover {
+    background-color: hsl(var(--clr-light));
+    opacity: 0.5;
+}
+
+.cursorinnerhover {
+    width: 50px;
+    height: 50px;
+    opacity: .5;
+}

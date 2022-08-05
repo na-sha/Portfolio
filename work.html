@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Our custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <title>na.sha</title>
+    <script src="./index.js" defer></script>
+    <script src="./tabs.js" defer></script>
+</head>
+
+<body class="work">
+    <header class="primary-header flex">
+        <div>
+            <img src="./assets/sitel.png" alt="space tourism logo" class="logo">
+        </div>
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only"
+                aria-expanded="false">Menu</span></button>
+        <nav>
+            <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators flex">
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="index.html">AboutMe</a>
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./skills.html">MySkills</a>
+                <li class="active"><a class="ff-sans-cond text-white letter-spacing-2" href="work.html">Work</a>
+                <li><a class="ff-sans-cond text-white letter-spacing-2" href="./contact.html">ContactMe</a>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main" class="grid-container grid-container--work flow">
+        <h1 class="numbered-title"><span aria-hidden="true">02</span> Personal Projects</h1>
+
+        <div class="dot-indicators flex" role="tablist" aria-label="prject list">
+            <button aria-selected="true" aria-controls="project1-tab" data-image="project1-image" role="tab"
+                tabindex="0"><span class="sr-only">Project 1</span></button>
+            <button aria-selected="false" aria-controls="project2-tab" data-image="project2-image" role="tab"
+                tabindex="-1"><span class="sr-only">Project 2</span></button>
+            <button aria-selected="false" aria-controls="project3-tab" data-image="project3-image" role="tab"
+                tabindex="-1"><span class="sr-only">Project 3</span></button>
+            <button aria-selected="false" aria-controls="project4-tab" data-image="project4-image" role="tab"
+                tabindex="-1"><span class="sr-only">Project 4</span></button>
+        </div>
+
+        <!-- Project 1 -->
+        <article class="work-details flow" id="project1-tab" role="tabpanel" tabindex="0">
+            <header class="flow flow--space-small">
+                <h2 class="fs-500 ff-serif uppercase">Project 1</h2>
+                <h3 class="fs-600 uppercase ff-serif">Personal Website &ltna.sha&gt</h3>
+            </header>
+            <p>Why 'na.sha' as name well 'na' for Nandan and 'sha' for Sharma.</p>
+            <p>I mean hopefully it is a start to something good. Have also made it responsive, should check it out.</p>
+        </article>
+
+        <!-- Project 2 -->
+        <article hidden class="work-details flow" id="project2-tab" role="tabpanel" tabindex="-1">
+            <header class="flow flow--space-small">
+                <h2 class="fs-500 ff-serif uppercase">Project 2</h2>
+                <h3 class="fs-600 uppercase ff-serif">Personal Website</h3>
+            </header>
+            <p>Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
+                and former NASA astronaut. He launched into space for the third time as
+                commander of work Dragon Demo-2.</p>
+        </article>
+
+        <!-- Project 3 -->
+        <article hidden class="work-details flow" id="project3-tab" role="tabpanel" tabindex="-1">
+            <header class="flow flow--space-small">
+                <h2 class="fs-500 ff-serif uppercase">Project 3</h2>
+                <h3 class="fs-600 uppercase ff-serif">Personal Website</h3>
+            </header>
+            <p>Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
+                and former NASA astronaut. He launched into space for the third time as
+                commander of work Dragon Demo-2.</p>
+        </article>
+
+        <!-- Project 4 -->
+        <article hidden class="work-details flow" id="project4-tab" role="tabpanel" tabindex="-1">
+            <header class="flow flow--space-small">
+                <h2 class="fs-500 ff-serif uppercase">Project 4</h2>
+                <h3 class="fs-600 uppercase ff-serif">Personal Website</h3>
+            </header>
+            <p>Douglas Gerald Hurley is an American engineer, former Marine Corps pilot
+                and former NASA astronaut. He launched into space for the third time as
+                commander of work Dragon Demo-2.</p>
+        </article>
+        <picture id="project1-image"></picture>
+        <picture hidden id="project2-image"></picture>
+        <picture hidden id="project3-image"></picture>
+        <picture hidden id="project4-image"></picture>
+    </main>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+    <script src="./cursor.js"></script>
+    <!-- <script src="./tabs.js"></script> -->
+</body>
+
+</html>
